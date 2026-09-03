@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #04101f;
+  color: #dbe9f7;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* Brilho de profundidade: a luz vem de cima, como em água parada. */
+.fundo-abissal {
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgba(30, 107, 255, 0.22), transparent 60%),
+    radial-gradient(80% 60% at 100% 100%, rgba(77, 155, 255, 0.1), transparent 70%),
+    #04101f;
+}
+
+.painel {
+  background: linear-gradient(180deg, rgba(14, 42, 74, 0.55), rgba(7, 27, 51, 0.35));
+  border: 1px solid rgba(158, 220, 247, 0.12);
+}
+
+.brilho-marca {
+  text-shadow: 0 0 28px rgba(77, 155, 255, 0.55);
+}
+
+/* Onda da coluna d'água. Um movimento só, contínuo, porque o dado é contínuo. */
+@keyframes deriva {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.onda {
+  animation: deriva 7s linear infinite;
+}
+
+@keyframes pulso {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.pulso {
+  animation: pulso 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .onda,
+  .pulso {
+    animation: none;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #4d9bff;
+  outline-offset: 2px;
+}
